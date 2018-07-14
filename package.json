@@ -22,7 +22,9 @@
     "terminal"
   ],
   "license": "MIT",
-  "engines": {"node": ">=4.0.0"},
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "dependencies": {
     "argparse": "^1.0.6",
     "kodi-ws": "https://github.com/bartels/kodi-ws/archive/custom.tar.gz",
