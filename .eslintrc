@@ -1,23 +1,24 @@
 {
-    "env": {
-        "node": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "extends": "eslint:recommended",
 
-    "rules": {
-        "linebreak-style": [2, "unix"],
-        "quotes": 0,
-        "camelcase": 0,
-        "comma-dangle": 0,
-        "eqeqeq": 1,
-        "curly": 1,
-        "no-console": 0,
-        "no-loop-func": 2,
-        "no-undef": 2,
-        "no-unused-vars": [2, {"vars": "all", "args": "none"}],
-        "semi": [2, "never"],
-        "space-before-function-paren": 2,
-        "space-before-blocks": 2,
-    }
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "quotes": 0,
+    "camelcase": 0,
+    "comma-dangle": 0,
+    "eqeqeq": 1,
+    "curly": 1,
+    "no-console": 0,
+    "no-loop-func": 2,
+    "no-undef": 2,
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    "semi": [2, "never"],
+    "space-before-function-paren": 2,
+    "space-before-blocks": 2,
+  }
 }
