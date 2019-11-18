@@ -1,6 +1,6 @@
 {
   "name": "kodikeys",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Control a remote Kodi instance from your terminal",
   "author": "Eric Bartels",
   "repository": "bartels/kodikeys.git",
