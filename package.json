@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "argparse": "^1.0.6",
-    "kodi-ws": "https://github.com/bartels/kodi-ws/archive/custom.tar.gz",
-    "terminal-kit": "^0.24.0",
+    "kodi-ws": "2.4.3",
+    "terminal-kit": "^1.26.11",
     "xbmc-event-client": "0.0.2"
   },
   "bin": "./bin/kodikeys"
