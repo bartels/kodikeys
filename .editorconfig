@@ -1,0 +1,17 @@
+# http://EditorConfig.org
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = yes
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = false
+
+[*.{js,jsx,json,ts,tsx}]
+indent_style = space
+indent_size = 2
+
+[bin/kodikeys]
+indent_style = space
+indent_size = 2
