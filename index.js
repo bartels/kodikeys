@@ -1,15 +1,15 @@
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
-var xec = require('xbmc-event-client')
-var kodiws = require('kodi-ws')
-var term = require('terminal-kit').terminal
-var keyboard = require('./lib/keyboard')
-var log = require('./lib/logging')
+const fs = require('fs')
+const path = require('path')
+const xec = require('xbmc-event-client')
+const kodiws = require('kodi-ws')
+const term = require('terminal-kit').terminal
+const keyboard = require('./lib/keyboard')
+const log = require('./lib/logging')
 
 
-var kodikeys = {
+const kodikeys = {
   defaults: {
     port: 9777,
     rpc_port: 9090,
@@ -25,7 +25,7 @@ var kodikeys = {
     return new Promise( (resolve, reject) => {
 
       // Event client setup
-      var ev_client = new xec.XBMCEventClient('kodikeys', {
+      const ev_client = new xec.XBMCEventClient('kodikeys', {
         host: opt.host,
         port: opt.port,
         iconbuffer: fs.readFileSync(path.join(__dirname, '/lib/node.png')),
@@ -36,7 +36,7 @@ var kodikeys = {
       ev_client.connect( (errors, bytes) => {
 
         if (errors.length) {
-          let msg = `Connection failed to host ${opt.host}, port ${opt.port}`
+          const msg = `Connection failed to host ${opt.host}, port ${opt.port}`
           log.error(msg)
           log.debug(errors[0].toString())
           reject(msg, errors)

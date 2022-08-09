@@ -23,6 +23,8 @@ module.exports = {
     "no-trailing-spaces": "error",
     "no-unused-vars": ["error", {"vars": "all", "args": "none"}],
     "no-use-before-define": ["error", { "functions": false, "classes": true, "variables": true }],
+    "no-var": "error",
+    "prefer-const": "error",
     "semi": ["error", "never"],
     "space-before-function-paren": "error",
     "space-before-blocks": "error",

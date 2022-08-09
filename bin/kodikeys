@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-
-var ArgumentParser = require('argparse').ArgumentParser
-var term = require('terminal-kit').terminal
-var kodikeys = require('..')
-var package_json = require('../package.json')
+const { ArgumentParser } = require('argparse')
+const term = require('terminal-kit').terminal
+const kodikeys = require('..')
+const package_json = require('../package.json')
 
 // Command line options
-var cli = new ArgumentParser({
+const cli = new ArgumentParser({
   prog:     'kodikeys',
   add_help:  true,
   description: package_json.description,
@@ -47,7 +46,7 @@ cli.add_argument('--log-level', {
   choices: ['error', 'warn', 'info', 'debug']
 })
 
-var opts = cli.parse_args()
+const opts = cli.parse_args()
 
 // run the command
 kodikeys.start(opts)
