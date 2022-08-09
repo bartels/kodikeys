@@ -114,7 +114,7 @@ const kodikeys = {
       }
 
     })
-  }
+  },
 }
 
 module.exports = kodikeys

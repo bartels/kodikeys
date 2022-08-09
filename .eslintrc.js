@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   env: {
     node: true,
-    es2021: true
+    es2021: true,
   },
   parserOptions: {
     ecmaVersion: 2022,
@@ -10,23 +10,26 @@ module.exports = {
   },
   extends: "eslint:recommended",
   rules: {
+    "brace-style": ["error", "stroustrup", { "allowSingleLine": true }],
+    "comma-dangle": ["error", "always-multiline"],
     "linebreak-style": ["error", "unix"],
     "indent": ["error", 2, {"SwitchCase": 1}],
     "quotes": "off",
     "camelcase": "off",
-    "comma-dangle": "off",
     "eqeqeq": "error",
     "curly": ["error", "multi-line"],
     "no-console": "off",
     "no-loop-func": "error",
     "no-undef": "error",
+    "no-shadow": "error",
     "no-trailing-spaces": "error",
     "no-unused-vars": ["error", {"vars": "all", "args": "none"}],
     "no-use-before-define": ["error", { "functions": false, "classes": true, "variables": true }],
     "no-var": "error",
+    "object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
     "prefer-const": "error",
     "semi": ["error", "never"],
     "space-before-function-paren": "error",
     "space-before-blocks": "error",
-  }
+  },
 }
