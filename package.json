@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=14"
   },
   "dependencies": {
     "argparse": "^1.0.6",
