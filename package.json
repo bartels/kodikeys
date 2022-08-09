@@ -3,8 +3,9 @@
   "version": "0.3.0",
   "description": "Control a remote Kodi instance from your terminal",
   "author": "Eric Bartels",
-  "repository": "bartels/kodikeys.git",
+  "repository": "github:bartels/kodikeys",
   "main": "index.js",
+  "bin": "./bin/kodikeys",
   "scripts": {
     "lint": "eslint ."
   },
@@ -30,6 +31,5 @@
     "kodi-ws": "2.4.3",
     "terminal-kit": "^1.26.11",
     "xbmc-event-client": "0.0.2"
-  },
-  "bin": "./bin/kodikeys"
+  }
 }
