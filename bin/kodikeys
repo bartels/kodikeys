@@ -14,7 +14,7 @@ const cli = new ArgumentParser({
 cli.add_argument('host', {
   help:   'The Kodi host to connect to',
   default: 'localhost',
-  nargs: '?'
+  nargs: '?',
 })
 
 cli.add_argument('-v', '--version', {
@@ -30,7 +30,7 @@ cli.add_argument('-p', '--port', {
 
 cli.add_argument('--rpc-port', {
   help:    'The JSON-RPC port (default: 9090)',
-  default: '9090'
+  default: '9090',
 })
 
 cli.add_argument('--debug', {
@@ -38,12 +38,12 @@ cli.add_argument('--debug', {
   dest: 'log_level',
   const: 'debug',
   action: 'store_const',
-  default: 'warn'
+  default: 'warn',
 })
 
 cli.add_argument('--log-level', {
   default: 'warn',
-  choices: ['error', 'warn', 'info', 'debug']
+  choices: ['error', 'warn', 'info', 'debug'],
 })
 
 const opts = cli.parse_args()

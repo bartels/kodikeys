@@ -7,7 +7,7 @@
   "main": "index.js",
   "bin": "./bin/kodikeys",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint . bin/kodikeys"
   },
   "keywords": [
     "kodi",
