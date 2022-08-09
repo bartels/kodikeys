@@ -16,7 +16,7 @@ const kodikeys = {
     log_level: 'warn',
   },
 
-  start: function (opt) {
+  start (opt) {
     opt = Object.assign({}, this.defaults, opt)
 
     log.setLevel(opt.log_level)
@@ -112,7 +112,6 @@ const kodikeys = {
         ev_client.disconnect(resolve)
         setTimeout(resolve, 250)
       }
-
     })
   },
 }
