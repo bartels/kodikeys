@@ -1,48 +1,53 @@
 #!/usr/bin/env node
 
-var argparse = require('argparse')
+var ArgumentParser = require('argparse').ArgumentParser
 var term = require('terminal-kit').terminal
 var kodikeys = require('..')
 var package_json = require('../package.json')
 
 // Command line options
-var cli = new argparse.ArgumentParser({
+var cli = new ArgumentParser({
   prog:     'kodikeys',
-  version:  package_json.version,
-  addHelp:  true,
+  add_help:  true,
   description: package_json.description,
 })
 
-cli.addArgument([ 'host' ], {
+cli.add_argument('host', {
   help:   'The Kodi host to connect to',
-  defaultValue: 'localhost',
+  default: 'localhost',
   nargs: '?'
 })
 
-cli.addArgument([ '-p', '--port' ], {
+cli.add_argument('-v', '--version', {
+  action: 'version',
+  version: package_json.version,
+})
+
+
+cli.add_argument('-p', '--port', {
   help:   'The EventServer port (default: 9777)',
-  defaultValue: '9777',
+  default: '9777',
 })
 
-cli.addArgument([ '--rpc-port' ], {
+cli.add_argument('--rpc-port', {
   help:    'The JSON-RPC port (default: 9090)',
-  defaultValue: '9090'
+  default: '9090'
 })
 
-cli.addArgument(['--debug'], {
+cli.add_argument('--debug', {
   help: 'Shortcut for --log-level debug',
   dest: 'log_level',
-  constant: 'debug',
-  action: 'storeConst',
-  defaultValue: 'warn'
+  const: 'debug',
+  action: 'store_const',
+  default: 'warn'
 })
 
-cli.addArgument(['--log-level'], {
-  defaultValue: 'warn',
+cli.add_argument('--log-level', {
+  default: 'warn',
   choices: ['error', 'warn', 'info', 'debug']
 })
 
-var opts = cli.parseArgs()
+var opts = cli.parse_args()
 
 // run the command
 kodikeys.start(opts)

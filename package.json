@@ -27,7 +27,7 @@
     "node": ">=14"
   },
   "dependencies": {
-    "argparse": "^1.0.6",
+    "argparse": "^2.0.1",
     "kodi-ws": "2.4.3",
     "terminal-kit": "^1.26.11",
     "xbmc-event-client": "0.0.2"
