@@ -37,7 +37,7 @@ const kodikeys = {
           const msg = `Connection failed to host ${opt.host}, port ${opt.port}`
           log.error(msg)
           log.debug(errors[0].toString())
-          reject(msg, errors)
+          reject({ msg, errors })
           return
         }
 

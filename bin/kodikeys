@@ -53,6 +53,6 @@ kodikeys.start(opts)
     console.log('Bye')
     term.processExit(0)
   })
-  .catch((msg, errors) => {
+  .catch(({ msg, errors }) => {
     term.processExit(1)
   })
