@@ -20,7 +20,7 @@ module.exports = {
     "curly": ["error", "multi-line"],
     "no-console": "off",
     "no-loop-func": "error",
-    "no-multiple-empty-lines": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-undef": "error",
     "no-shadow": "error",
     "no-trailing-spaces": "error",

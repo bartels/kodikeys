@@ -8,7 +8,6 @@ const term = require('terminal-kit').terminal
 const keyboard = require('./lib/keyboard')
 const log = require('./lib/logging')
 
-
 const kodikeys = {
   defaults: {
     port: 9777,

@@ -22,7 +22,6 @@ cli.add_argument('-v', '--version', {
   version: package_json.version,
 })
 
-
 cli.add_argument('-p', '--port', {
   help:   'The EventServer port (default: 9777)',
   default: '9777',
