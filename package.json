@@ -31,5 +31,8 @@
     "kodi-ws": "2.4.3",
     "terminal-kit": "^2.5.1",
     "xbmc-event-client": "0.0.2"
+  },
+  "overrides": {
+    "set-value@<3.0.1": "4.1.0"
   }
 }
