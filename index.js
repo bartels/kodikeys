@@ -24,7 +24,7 @@ const kodikeys = {
     return new Promise((resolve, reject) => {
 
       // Event client setup
-      const ev_client = new xec.XBMCEventClient('kodikeys', {
+      const event_client = new xec.XBMCEventClient('kodikeys', {
         host: opt.host,
         port: opt.port,
         iconbuffer: fs.readFileSync(path.join(__dirname, '/lib/node.png')),
@@ -32,8 +32,7 @@ const kodikeys = {
       })
 
       // Connect to kodi event server
-      ev_client.connect((errors, bytes) => {
-
+      event_client.connect((errors, bytes) => {
         if (errors.length) {
           const msg = `Connection failed to host ${opt.host}, port ${opt.port}`
           log.error(msg)
@@ -48,7 +47,7 @@ const kodikeys = {
             log.info(`connected to json-rpc on ${opt.host}, port ${opt.rpc_port}`)
 
             // Start keyboard capture
-            keyboard.capture(ev_client).then(disconnect)
+            keyboard.capture(event_client).then(disconnect)
 
             // Listen for notifications
             // Input requested by kodi
@@ -69,7 +68,7 @@ const kodikeys = {
             // Input finished
             connection.notification('Input.OnInputFinished', (resp) => {
               log.info('input accepted')
-              keyboard.exitTextEntry()
+              keyboard.endTextEntry()
             })
 
             // Quit notification
@@ -94,11 +93,11 @@ const kodikeys = {
             log.warn('Some functions, such as sending remote input, will not work')
 
             // Start keyboard capture
-            keyboard.capture(ev_client).then(disconnect)
+            keyboard.capture(event_client).then(disconnect)
           })
 
         // ping to keep connection  alive
-        setInterval(ev_client.ping.bind(ev_client), 55 * 1000)
+        setInterval(event_client.ping.bind(event_client), 55 * 1000)
 
         term.bold(`connected to Kodi on ${opt.host}, ctrl-c to exit\n`)
         log.info(`connected to EventServer on ${opt.host}, port ${opt.port}`)
@@ -106,7 +105,7 @@ const kodikeys = {
 
       // Disconnect from kodi and return to caller
       function disconnect () {
-        ev_client.disconnect(resolve)
+        event_client.disconnect(resolve)
         setTimeout(resolve, 250)
       }
     })
