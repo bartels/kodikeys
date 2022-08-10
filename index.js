@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const xec = require('xbmc-event-client')
 const kodiws = require('kodi-ws')
-const term = require('terminal-kit').terminal
+const { terminal } = require('terminal-kit')
 const keyboard = require('./lib/keyboard')
 const log = require('./lib/logging')
 
@@ -55,8 +55,8 @@ const kodikeys = {
               keyboard.startTextEntry()
                 .then(text => {
                   if (text) {
-                    term('sending: ').bold(text)
-                    term('\n')
+                    terminal('sending: ').bold(text)
+                    terminal('\n')
                     connection.Input.SendText(text)
                   }
                   else {
@@ -73,18 +73,18 @@ const kodikeys = {
 
             // Quit notification
             connection.notification('System.OnQuit', (resp) => {
-              term.yellow(`Kodi is quitting\n`)
+              terminal.yellow(`Kodi is quitting\n`)
               disconnect()
             })
 
             // Sleep notification
             connection.notification('System.OnSleep', (resp) => {
-              term.yellow('Kodi is being put into sleep mode...\n')
+              terminal.yellow('Kodi is being put into sleep mode...\n')
             })
 
             // Wake notification
             connection.notification('System.OnWake', (resp) => {
-              term.green('Kodi has woken up from sleep mode\n')
+              terminal.green('Kodi has woken up from sleep mode\n')
             })
           })
           .catch(error => {
@@ -99,7 +99,7 @@ const kodikeys = {
         // ping to keep connection  alive
         setInterval(event_client.ping.bind(event_client), 55 * 1000)
 
-        term.bold(`connected to Kodi on ${opt.host}, ctrl-c to exit\n`)
+        terminal.bold(`connected to Kodi on ${opt.host}, ctrl-c to exit\n`)
         log.info(`connected to EventServer on ${opt.host}, port ${opt.port}`)
       })
 

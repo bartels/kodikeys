@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const { ArgumentParser } = require('argparse')
-const term = require('terminal-kit').terminal
+const { terminal } = require('terminal-kit')
 const kodikeys = require('..')
 const package_json = require('../package.json')
 
@@ -51,8 +51,8 @@ const opts = cli.parse_args()
 kodikeys.start(opts)
   .then(() => {
     console.log('Bye')
-    term.processExit(0)
+    terminal.processExit(0)
   })
   .catch(({ msg, errors }) => {
-    term.processExit(1)
+    terminal.processExit(1)
   })
