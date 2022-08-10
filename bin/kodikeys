@@ -50,10 +50,10 @@ const opts = cli.parse_args()
 
 // run the command
 kodikeys.start(opts)
-  .then( () => {
+  .then(() => {
     console.log('Bye')
     term.processExit(0)
   })
-  .catch( (msg, errors) => {
+  .catch((msg, errors) => {
     term.processExit(1)
   })

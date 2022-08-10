@@ -32,5 +32,6 @@ module.exports = {
     "semi": ["error", "never"],
     "space-before-function-paren": "error",
     "space-before-blocks": "error",
+    "space-in-parens": ["error", "never" ],
   },
 }

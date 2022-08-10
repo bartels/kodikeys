@@ -22,7 +22,7 @@ const kodikeys = {
     log.setLevel(opt.log_level)
 
     // Promise resolves when user closes the connection
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
       // Event client setup
       const ev_client = new xec.XBMCEventClient('kodikeys', {
@@ -33,7 +33,7 @@ const kodikeys = {
       })
 
       // Connect to kodi event server
-      ev_client.connect( (errors, bytes) => {
+      ev_client.connect((errors, bytes) => {
 
         if (errors.length) {
           const msg = `Connection failed to host ${opt.host}, port ${opt.port}`
@@ -45,18 +45,17 @@ const kodikeys = {
 
         // Connect to kodi json-rpc
         kodiws(opt.host, opt.rpc_port)
-          .then( (connection) => {
+          .then(connection => {
             log.info(`connected to json-rpc on ${opt.host}, port ${opt.rpc_port}`)
 
             // Start keyboard capture
-            keyboard.capture(ev_client)
-              .then(disconnect)
+            keyboard.capture(ev_client).then(disconnect)
 
             // Listen for notifications
             // Input requested by kodi
             connection.notification('Input.OnInputRequested', (resp) => {
               keyboard.startTextEntry()
-                .then( (text) => {
+                .then(text => {
                   if (text) {
                     term('sending: ').bold(text)
                     term('\n')
@@ -90,14 +89,13 @@ const kodikeys = {
               term.green('Kodi has woken up from sleep mode\n')
             })
           })
-          .catch( (error) => {
+          .catch(error => {
             log.error(`Failed to connect to JSON-RPC on ${opt.host} port ${opt.rpc_port}`)
             log.debug(error.toString())
             log.warn('Some functions, such as sending remote input, will not work')
 
             // Start keyboard capture
-            keyboard.capture(ev_client)
-              .then(disconnect)
+            keyboard.capture(ev_client).then(disconnect)
           })
 
         // ping to keep connection  alive
